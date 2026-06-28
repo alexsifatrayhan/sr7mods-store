@@ -9,7 +9,9 @@
       "name": "Tool"
     }
   ],
-  "recommended_apps": [],
+  "recommended_apps": [
+    "com.forcenet.radioif"
+  ],
   "app_list": [
     {
       "pkg": "com.forcenet.radioif",
