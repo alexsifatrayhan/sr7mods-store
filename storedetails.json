@@ -3,7 +3,32 @@
     "store_name": "SR7MODS STORE",
     "about_url": "https://alexsifatrayhan.github.io/about-me/"
   },
-  "categories": [],
+  "categories": [
+    {
+      "id": "tool",
+      "name": "Tool"
+    }
+  ],
   "recommended_apps": [],
-  "app_list": []
+  "app_list": [
+    {
+      "pkg": "com.forcenet.radioif",
+      "name": "ForceNet",
+      "category": "tool",
+      "icon": "https://imgur.com/a/W2esbKF",
+      "version": "v1.0",
+      "creator": "SR7 Mods",
+      "modder": "SR7 Mods",
+      "description": "<p> You can Forcely set network type by this app.<br> It usually opens phone's built-in hidden Radio Info Activity. <br>So much helpful for high speed users.</p>",
+      "mod_features": [
+        "Available for both Android  10-, 10+ and legacy."
+      ],
+      "download_links": [
+        {
+          "name": "Download APK",
+          "url": "https://www.dropbox.com/scl/fi/7jnkko68c9sgpfcrqxjl0/ForceNet_Release.apk?rlkey=xwut41efyeyx5nmd3wk59ryt1&st=ywirk3jo&dl=1"
+        }
+      ]
+    }
+  ]
 }
