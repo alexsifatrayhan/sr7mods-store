@@ -1,0 +1,1458 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SR7MODS STORE</title>
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+      /*
+       * SR7MODS STORE - Cyberpunk & Glassmorphism Theme Style
+       * Optimized CSS with custom CSS variables, smooth animations & 60fps transitions
+       */
+
+      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap');
+
+      :root {
+        --font-display: 'Rajdhani', sans-serif;
+        --font-sans: 'Plus Jakarta Sans', sans-serif;
+
+        /* Premium Cyberpunk Color Tokens */
+        --color-bg-dark: #0a0c10;
+        --color-bg-slate: #0f131a;
+        --color-neon-cyan: #00f2fe;
+        --color-neon-cyan-glow: rgba(0, 242, 254, 0.4);
+        --color-neon-pink: #ff007f;
+        --color-neon-pink-glow: rgba(255, 0, 127, 0.4);
+        --color-neon-green: #39ff14;
+        --color-neon-green-glow: rgba(57, 255, 20, 0.4);
+        --color-gold: #ffb800;
+
+        /* Glassmorphism Configuration */
+        --glass-bg: rgba(15, 20, 30, 0.45);
+        --glass-bg-hover: rgba(25, 32, 47, 0.65);
+        --glass-border: rgba(255, 255, 255, 0.08);
+        --glass-border-glow: rgba(0, 242, 254, 0.25);
+        --glass-blur: blur(16px) saturate(180%);
+      }
+
+      /* Base resets & layouts */
+      body {
+        background-color: var(--color-bg-dark);
+        font-family: var(--font-sans);
+        color: #e2e8f0;
+        overflow-x: hidden;
+        position: relative;
+        min-height: 100vh;
+      }
+
+      /* Background Glowing Blobs */
+      .bg-glow-blobs {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -10;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(120px);
+        opacity: 0.25;
+        animation: floatBlobs 20s infinite ease-in-out;
+      }
+
+      .blob-1 {
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, var(--color-neon-cyan) 0%, rgba(0,0,0,0) 70%);
+        top: -10%;
+        left: -10%;
+        animation-delay: 0s;
+      }
+
+      .blob-2 {
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, var(--color-neon-pink) 0%, rgba(0,0,0,0) 70%);
+        bottom: -15%;
+        right: -10%;
+        animation-delay: 5s;
+      }
+
+      .blob-3 {
+        width: 450px;
+        height: 450px;
+        background: radial-gradient(circle, var(--color-neon-green) 0%, rgba(0,0,0,0) 70%);
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation-delay: 10s;
+      }
+
+      @keyframes floatBlobs {
+        0%, 100% {
+          transform: translate(0, 0) scale(1);
+        }
+        33% {
+          transform: translate(50px, -40px) scale(1.1);
+        }
+        66% {
+          transform: translate(-30px, 60px) scale(0.95);
+        }
+      }
+
+      /* Typography styles */
+      .font-display {
+        font-family: var(--font-display);
+      }
+
+      .text-cyber-glow-cyan {
+        text-shadow: 0 0 8px var(--color-neon-cyan-glow), 0 0 20px rgba(0, 242, 254, 0.2);
+      }
+
+      .text-cyber-glow-pink {
+        text-shadow: 0 0 8px var(--color-neon-pink-glow), 0 0 20px rgba(255, 0, 127, 0.2);
+      }
+
+      /* Glassmorphism base utility classes */
+      .glass-panel {
+        background: var(--glass-bg);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+
+      .glass-panel:hover {
+        border-color: rgba(255, 255, 255, 0.15);
+      }
+
+      .glass-card-interactive {
+        background: var(--glass-bg);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                    border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                    background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .glass-card-interactive:hover {
+        transform: translateY(-4px) scale(1.02);
+        border-color: var(--glass-border-glow);
+        background-color: var(--glass-bg-hover);
+        box-shadow: 0 12px 40px 0 rgba(0, 242, 254, 0.15);
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: rgba(10, 12, 16, 0.5);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 999px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-neon-cyan);
+        box-shadow: 0 0 8px var(--color-neon-cyan-glow);
+      }
+
+      /* Hamburger & Sidebar Transition */
+      .hamburger-line {
+        transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+      }
+
+      .sidebar-open .line-1 {
+        transform: translateY(6px) rotate(45deg);
+      }
+
+      .sidebar-open .line-2 {
+        opacity: 0;
+      }
+
+      .sidebar-open .line-3 {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+
+      /* Horizontal Infinite Carousel */
+      .carousel-viewport {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        cursor: grab;
+        user-select: none;
+      }
+
+      .carousel-viewport:active {
+        cursor: grabbing;
+      }
+
+      .carousel-track {
+        display: flex;
+        transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        will-change: transform;
+      }
+
+      /* Neon Glow utilities */
+      .glow-border-cyan {
+        border-color: var(--color-neon-cyan);
+        box-shadow: 0 0 10px var(--color-neon-cyan-glow);
+      }
+
+      .glow-border-pink {
+        border-color: var(--color-neon-pink);
+        box-shadow: 0 0 10px var(--color-neon-pink-glow);
+      }
+
+      /* Fixed Accessibility Gear Button */
+      #secret-trigger-gear {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        width: 48px;
+        height: 48px;
+        background: rgba(15, 20, 30, 0.55);
+        backdrop-filter: blur(12px) saturate(180%);
+        -webkit-backdrop-filter: blur(12px) saturate(180%);
+        border: 1px solid rgba(0, 242, 254, 0.3);
+        box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #00f2fe;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 9999;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      #secret-trigger-gear:hover {
+        transform: rotate(45deg) scale(1.1);
+        box-shadow: 0 0 25px rgba(0, 242, 254, 0.4);
+        border-color: rgba(0, 242, 254, 0.6);
+        background: rgba(15, 20, 30, 0.8);
+      }
+
+      /* Accessibility side drawer panel style */
+      #accessibility-sidebar {
+        position: fixed;
+        top: 0;
+        right: -320px;
+        width: 320px;
+        height: 100vh;
+        z-index: 10000;
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex;
+        flex-direction: column;
+        border-left: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      #accessibility-sidebar.open {
+        right: 0;
+      }
+
+      body.light-theme #accessibility-sidebar {
+        border-left: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      /* Light/Brighten Glassy UI Theme Overrides */
+      body.light-theme {
+        --color-bg-dark: #f1f3f7;
+        --color-bg-slate: #ebedf2;
+        --glass-bg: rgba(255, 255, 255, 0.55);
+        --glass-bg-hover: rgba(255, 255, 255, 0.75);
+        --glass-border: rgba(0, 0, 0, 0.1);
+        --glass-border-glow: rgba(0, 159, 169, 0.3);
+        background-color: var(--color-bg-dark);
+        color: #1e293b;
+      }
+
+      body.light-theme .glass-panel,
+      body.light-theme .glass-card-interactive,
+      body.light-theme .glass-card {
+        background: var(--glass-bg);
+        border-color: var(--glass-border);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+        color: #0f172a;
+      }
+
+      body.light-theme .glass-card-interactive:hover {
+        background-color: var(--glass-bg-hover);
+        border-color: var(--glass-border-glow);
+        box-shadow: 0 12px 40px 0 rgba(0, 159, 169, 0.15);
+      }
+
+      body.light-theme text,
+      body.light-theme h1,
+      body.light-theme h2,
+      body.light-theme h3,
+      body.light-theme h4,
+      body.light-theme h5,
+      body.light-theme h6 {
+        color: #0f172a !important;
+      }
+
+      body.light-theme .text-white {
+        color: #0f172a !important;
+      }
+
+      body.light-theme .text-gray-300,
+      body.light-theme .text-gray-400,
+      body.light-theme .text-slate-300,
+      body.light-theme .text-slate-400 {
+        color: #334155 !important;
+      }
+
+      body.light-theme .border-white\/5,
+      body.light-theme .border-white\/10 {
+        border-color: rgba(0, 0, 0, 0.08) !important;
+      }
+
+      body.light-theme .bg-black\/40,
+      body.light-theme .bg-black\/60,
+      body.light-theme .bg-black\/80,
+      body.light-theme .bg-\[\#0b0d13\] {
+        background-color: rgba(255, 255, 255, 0.6) !important;
+      }
+
+      body.light-theme .bg-\[\#0a0c10\],
+      body.light-theme .bg-\[\#0f131a\] {
+        background-color: #ebedf2 !important;
+      }
+
+      body.light-theme .text-cyan-400 {
+        color: #0081a7 !important;
+      }
+
+      body.light-theme .text-cyber-glow-cyan {
+        text-shadow: 0 0 8px rgba(0, 129, 167, 0.25);
+      }
+
+      body.light-theme .text-pink-500,
+      body.light-theme .text-pink-400 {
+        color: #d90429 !important;
+      }
+
+      body.light-theme input,
+      body.light-theme select,
+      body.light-theme textarea {
+        background: rgba(255, 255, 255, 0.8) !important;
+        border-color: rgba(0, 0, 0, 0.15) !important;
+        color: #0f172a !important;
+      }
+
+      body.light-theme input:focus {
+        background: #ffffff !important;
+        border-color: #0081a7 !important;
+        box-shadow: 0 0 0 2px rgba(0, 129, 167, 0.2) !important;
+      }
+
+      body.light-theme .bg-cyan-500\/10 {
+        background-color: rgba(0, 129, 167, 0.1) !important;
+      }
+
+      body.light-theme .bg-cyan-500\/20 {
+        background-color: rgba(0, 129, 167, 0.15) !important;
+      }
+
+      body.light-theme .blob-1 {
+        background: radial-gradient(circle, rgba(0, 129, 167, 0.15) 0%, rgba(255,255,255,0) 70%) !important;
+      }
+
+      body.light-theme .blob-2 {
+        background: radial-gradient(circle, rgba(217, 4, 41, 0.1) 0%, rgba(255,255,255,0) 70%) !important;
+      }
+
+      body.light-theme .blob-3 {
+        background: radial-gradient(circle, rgba(57, 255, 20, 0.08) 0%, rgba(255,255,255,0) 70%) !important;
+      }
+
+      /* Dynamic glow cards depending on profile */
+      .glow-card-cyan {
+        box-shadow: 0 8px 32px 0 rgba(0, 242, 254, 0.08);
+      }
+      .glow-card-pink {
+        box-shadow: 0 8px 32px 0 rgba(255, 0, 127, 0.08);
+      }
+      .glow-card-green {
+        box-shadow: 0 8px 32px 0 rgba(57, 255, 20, 0.08);
+      }
+      .glow-card-gold {
+        box-shadow: 0 8px 32px 0 rgba(255, 184, 0, 0.08);
+      }
+
+      /* Input Styles */
+      input, textarea, select {
+        background: rgba(10, 12, 16, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #f8fafc;
+        transition: all 0.25s ease;
+      }
+
+      input:focus, textarea:focus, select:focus {
+        outline: none;
+        border-color: var(--color-neon-cyan);
+        box-shadow: 0 0 0 2px rgba(0, 242, 254, 0.25);
+        background: rgba(15, 20, 30, 0.8);
+      }
+
+      /* Buttons */
+      .btn-primary {
+        background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+        color: #030712;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
+        filter: brightness(1.1);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #e2e8f0;
+        transition: all 0.3s ease;
+      }
+
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.25);
+      }
+
+      /* Custom Accordion for Sidebar */
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+
+      .accordion-active .accordion-content {
+        max-height: 500px;
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex flex-col justify-between">
+    
+    <!-- Background Glowing Blobs -->
+    <div class="bg-glow-blobs">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
+    <!-- GLOBAL NAVIGATION HEADER -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-white/5 py-3 px-4 md:px-8">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        
+        <!-- Left Side: Hamburger & Navigation Trigger -->
+        <div class="flex items-center">
+          <button id="burger-menu-btn" class="flex flex-col justify-between w-6 h-5 focus:outline-none z-50 group" aria-label="Toggle Navigation">
+            <span class="hamburger-line line-1 w-6 h-0.5 bg-cyan-400 group-hover:bg-white rounded"></span>
+            <span class="hamburger-line line-2 w-5 h-0.5 bg-cyan-400 group-hover:bg-white rounded"></span>
+            <span class="hamburger-line line-3 w-6 h-0.5 bg-cyan-400 group-hover:bg-white rounded"></span>
+          </button>
+        </div>
+
+        <!-- Center: Title and Brand -->
+        <div class="flex flex-col items-center text-center">
+          <a href="index.html" id="header-home-link" class="store-title-header font-display text-2xl md:text-3xl font-extrabold tracking-wider bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-500 bg-clip-text text-transparent hover:brightness-110 active:scale-[0.99] transition-all cursor-pointer">
+            SR7MODS STORE
+          </a>
+          <a href="https://alexsifatrayhan.github.io/about-me/" id="header-about-link" target="_self" class="text-[10px] md:text-xs font-mono text-gray-400 hover:text-pink-500 uppercase tracking-widest transition-all cursor-pointer mt-0.5">
+            SR7 Mods
+          </a>
+        </div>
+
+        <!-- Right Side: Interactive Search Expanding Block -->
+        <div class="flex items-center gap-2 relative">
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="SEARCH..." 
+            class="w-0 opacity-0 py-1 text-xs bg-black/80 border border-cyan-500/30 rounded-lg text-cyan-300 font-mono tracking-wider transition-all duration-300"
+          />
+          <button id="search-btn" class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-cyan-500/30 transition-all text-cyan-400 hover:text-cyan-300 focus:outline-none" aria-label="Search Systems">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- SLIDE & BLUR NAVIGATION SIDEBAR -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-40 hidden pointer-events-none transition-opacity duration-300"></div>
+    <aside id="sidebar-nav" class="fixed top-0 left-0 h-screen w-72 bg-slate-950/95 backdrop-blur-xl border-r border-cyan-500/20 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out p-6 flex flex-col justify-between">
+      
+      <!-- Top Sidebar Nav Content -->
+      <div class="space-y-8">
+        <div class="border-b border-white/5 pb-4">
+          <h2 class="font-display text-xl font-bold text-cyan-400 text-cyber-glow-cyan uppercase tracking-wider">Menu</h2>
+        </div>
+
+        <nav>
+          <ul class="space-y-4">
+            <!-- 1. Home Link -->
+            <li>
+              <a href="index.html" id="sidebar-home-link" class="flex items-center gap-3 text-sm font-mono text-gray-300 hover:text-cyan-300 transition-all py-1.5 uppercase">
+                <span class="text-cyan-500">&gt;</span> HOME
+              </a>
+            </li>
+
+            <!-- 2. Categories Accordion component -->
+            <li>
+              <div id="sidebar-categories-accordion" class="space-y-2">
+                <button class="accordion-header w-full flex items-center justify-between text-sm font-mono text-gray-300 hover:text-cyan-300 transition-all py-1.5 uppercase focus:outline-none">
+                  <span class="flex items-center gap-3">
+                    <span class="text-cyan-500">&gt;</span> CATEGORIES
+                  </span>
+                  <svg class="w-4 h-4 text-cyan-400 transform transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                <div class="accordion-content pl-6">
+                  <ul id="sidebar-categories-list" class="space-y-2 border-l border-white/5 pl-3 py-1">
+                    <!-- Loaded dynamically -->
+                  </ul>
+                </div>
+              </div>
+            </li>
+
+            <!-- 3. About Link -->
+            <li>
+              <a href="https://alexsifatrayhan.github.io/about-me/" target="_self" id="sidebar-about-link" class="flex items-center gap-3 text-sm font-mono text-gray-300 hover:text-cyan-300 transition-all py-1.5 uppercase">
+                <span class="text-cyan-500">&gt;</span> ABOUT
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Bottom Sidebar Nav Meta -->
+      <div class="border-t border-white/5 pt-4 text-center">
+        <p class="text-[9px] text-gray-600 font-mono uppercase">© SR7 Mods</p>
+      </div>
+    </aside>
+
+    <!-- MAIN HOME LAYOUT CONTAINER -->
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 md:px-8 py-8 space-y-12">
+      
+      <!-- RECOMMENDED CAROUSEL SECTION -->
+      <section id="recommended-carousel-section" class="space-y-4">
+        <div class="flex items-center justify-between border-b border-white/5 pb-2">
+          <h2 class="font-display text-xl md:text-2xl font-bold tracking-wider text-cyan-400 text-cyber-glow-cyan uppercase flex items-center gap-2">
+            <span>✨</span> FEATURED SELECTIONS
+          </h2>
+          <span class="text-[10px] font-mono text-gray-500 uppercase">SWIPE / TOUCH DRAGGABLE</span>
+        </div>
+        
+        <!-- Outer Carousel Viewport -->
+        <div id="recommended-carousel-container" class="carousel-viewport glass-panel rounded-2xl p-2">
+          <div id="recommended-carousel-track" class="carousel-track">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </section>
+
+      <!-- MAIN APP LIST GRID SECTION -->
+      <section id="main-store-section" class="space-y-6">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-white/5 pb-3">
+          <div class="space-y-1">
+            <h2 class="font-display text-xl md:text-2xl font-bold tracking-wider text-white uppercase flex items-center gap-2">
+              <span>📂</span> SYSTEM INDEX ARCHIVES
+            </h2>
+            <p id="grid-results-count" class="text-[10px] font-mono text-gray-400 uppercase">Found -- systems</p>
+          </div>
+          
+          <!-- Category Active State Display inside header -->
+          <div class="text-xs font-mono text-cyan-400 flex items-center gap-2">
+            <span class="text-gray-500">FILTER STATUS:</span>
+            <span id="active-category-indicator" class="uppercase">[ SECURE DEPLOYED NODE ]</span>
+          </div>
+        </div>
+
+        <!-- App list responsive grid -->
+        <div id="main-app-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Rendered dynamically -->
+        </div>
+
+        <!-- Pagination Section -->
+        <div id="grid-pagination" class="flex justify-center items-center gap-2 pt-6">
+          <!-- Rendered dynamically -->
+        </div>
+      </section>
+
+    </main>
+
+    <!-- PREMIUM FOOTER -->
+    <footer class="mt-12 glass-panel border-t border-white/5 py-8 px-4 text-center relative overflow-hidden">
+      <div class="max-w-4xl mx-auto space-y-3">
+        <div class="flex justify-center items-center gap-2">
+          <span class="text-cyan-400 font-mono tracking-widest uppercase font-bold text-sm">SR7 MODS</span>
+        <p class="text-xs text-gray-400 leading-relaxed max-w-2xl mx-auto">
+          © 2026 SR7 Mods. All web assets, reverse-engineered modules, and customized modifications belong strictly to SR7 Mods. Unauthorized distribution prohibited.
+        </p>
+      </div>
+
+      <!-- Hidden absolute gear backdoor -->
+      <button id="secret-trigger-gear" class="secret-gear">⚙️</button>
+    </footer>
+
+    <!-- Core App Engine Inline JavaScript -->
+    <script>
+      (function() {
+        // Global state
+        let storeDB = null;
+        let currentCategory = 'all';
+        let searchQuery = '';
+        let currentPage = 1;
+        const itemsPerPage = 20;
+
+        // Carousel drag state
+        let isDragging = false;
+        let startX = 0;
+        let scrollLeft = 0;
+        let carouselTimer = null;
+        let currentCarouselIndex = 0;
+
+        document.addEventListener('DOMContentLoaded', async () => {
+          await initializeApp();
+        });
+
+        // Main initialization
+        async function initializeApp() {
+          storeDB = await fetchDatabase();
+          setupGlobalNavigation();
+          renderSidebarCategories();
+          
+          const isAppDetailPage = window.location.pathname.endsWith('app.html') || window.location.search.includes('pkg=');
+          
+          if (isAppDetailPage && document.getElementById('app-detail-container')) {
+            renderAppDetails();
+          } else if (document.getElementById('main-app-grid')) {
+            renderMainPage();
+          }
+
+          updateStoreConfigUI();
+        }
+
+        // Fetch database with localStorage persistence as dynamic CRUD state
+        async function fetchDatabase() {
+          let localData = localStorage.getItem('sr7_storedetails');
+          if (localData) {
+            try {
+              return JSON.parse(localData);
+            } catch (e) {
+              console.error('Error parsing localStorage storedetails', e);
+            }
+          }
+
+          try {
+            const response = await fetch('./storedetails.json');
+            if (response.ok) {
+              const dataText = await response.text();
+              localStorage.setItem('sr7_storedetails', dataText);
+              return JSON.parse(dataText);
+            }
+          } catch (error) {
+            console.error('Could not fetch storedetails.json', error);
+          }
+
+          // Emergency default if file fetch fails and no cache exists
+          const emergencyFallback = {
+            "config": {
+              "store_name": "SR7MODS STORE",
+              "about_url": "https://alexsifatrayhan.github.io/about-me/"
+            },
+            "categories": [
+              { "id": "tools", "name": "Tools & Utilities" },
+              { "id": "gaming", "name": "Modded Games" },
+              { "id": "media", "name": "Media Streamers" }
+            ],
+            "recommended_apps": ["com.sr7.netrunner"],
+            "app_list": [
+              {
+                "pkg": "com.sr7.netrunner",
+                "name": "NetRunner Proxy",
+                "category": "tools",
+                "icon": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=120&h=120&q=80",
+                "version": "v4.2.1-Neon",
+                "creator": "SR7 Mods",
+                "modder": "Alex Sifat",
+                "mod_features": ["Ad-Free Secure Tunneling", "Encrypted Packet Injection Bypass"],
+                "store_ref": { "logo_type": "play_store", "display_name": "Google Play Store", "url": "#" },
+                "description": "<p>Secure proxy tunnel bypass.</p>",
+                "download_links": [{ "name": "Download APK", "url": "#" }]
+              }
+            ]
+          };
+          localStorage.setItem('sr7_storedetails', JSON.stringify(emergencyFallback));
+          return emergencyFallback;
+        }
+
+        function updateStoreConfigUI() {
+          if (!storeDB || !storeDB.config) return;
+          const storeNameText = storeDB.config.store_name || "SR7MODS STORE";
+          
+          const storeTitles = document.querySelectorAll('.store-title-header');
+          storeTitles.forEach(el => {
+            el.textContent = storeNameText;
+          });
+
+          document.title = storeNameText;
+        }
+
+        function setupGlobalNavigation() {
+          const burgerBtn = document.getElementById('burger-menu-btn');
+          const sidebar = document.getElementById('sidebar-nav');
+          const sidebarOverlay = document.getElementById('sidebar-overlay');
+          const searchBtn = document.getElementById('search-btn');
+          const searchInput = document.getElementById('search-input');
+          
+          if (burgerBtn && sidebar && sidebarOverlay) {
+            burgerBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              const isOpen = sidebar.classList.contains('translate-x-0');
+              if (isOpen) {
+                closeSidebar();
+              } else {
+                openSidebar();
+              }
+            });
+
+            sidebarOverlay.addEventListener('click', closeSidebar);
+          }
+
+          document.addEventListener('click', (e) => {
+            if (sidebar && !sidebar.contains(e.target) && burgerBtn && !burgerBtn.contains(e.target)) {
+              if (sidebar.classList.contains('translate-x-0')) {
+                closeSidebar();
+              }
+            }
+          });
+
+          const homeTitle = document.getElementById('header-home-link');
+          if (homeTitle) {
+            homeTitle.addEventListener('click', (e) => {
+              e.preventDefault();
+              window.location.href = 'index.html';
+            });
+          }
+
+          const aboutLink = document.getElementById('header-about-link');
+          if (aboutLink) {
+            aboutLink.addEventListener('click', (e) => {
+              e.preventDefault();
+              const targetUrl = storeDB?.config?.about_url || 'https://alexsifatrayhan.github.io/about-me/';
+              window.location.href = targetUrl;
+            });
+          }
+
+          const sidebarHome = document.getElementById('sidebar-home-link');
+          if (sidebarHome) {
+            sidebarHome.addEventListener('click', (e) => {
+              e.preventDefault();
+              closeSidebar();
+              window.location.href = 'index.html';
+            });
+          }
+
+          const sidebarAbout = document.getElementById('sidebar-about-link');
+          if (sidebarAbout) {
+            sidebarAbout.addEventListener('click', (e) => {
+              e.preventDefault();
+              closeSidebar();
+              const targetUrl = storeDB?.config?.about_url || 'https://alexsifatrayhan.github.io/about-me/';
+              window.location.href = targetUrl;
+            });
+          }
+
+          if (searchBtn && searchInput) {
+            searchBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              searchInput.classList.toggle('w-0');
+              searchInput.classList.toggle('w-48');
+              searchInput.classList.toggle('opacity-0');
+              searchInput.classList.toggle('px-3');
+              searchInput.focus();
+            });
+
+            searchInput.addEventListener('input', (e) => {
+              searchQuery = e.target.value.toLowerCase().trim();
+              currentPage = 1;
+              renderAppGrid();
+            });
+
+            searchInput.addEventListener('click', (e) => e.stopPropagation());
+          }
+        }
+
+        function openSidebar() {
+          const burgerBtn = document.getElementById('burger-menu-btn');
+          const sidebar = document.getElementById('sidebar-nav');
+          const sidebarOverlay = document.getElementById('sidebar-overlay');
+          
+          if (sidebar && sidebarOverlay && burgerBtn) {
+            sidebar.classList.remove('-translate-x-full');
+            sidebar.classList.add('translate-x-0');
+            sidebarOverlay.classList.remove('hidden', 'pointer-events-none');
+            sidebarOverlay.classList.add('opacity-100');
+            burgerBtn.classList.add('sidebar-open');
+          }
+        }
+
+        function closeSidebar() {
+          const burgerBtn = document.getElementById('burger-menu-btn');
+          const sidebar = document.getElementById('sidebar-nav');
+          const sidebarOverlay = document.getElementById('sidebar-overlay');
+          
+          if (sidebar && sidebarOverlay && burgerBtn) {
+            sidebar.classList.add('-translate-x-full');
+            sidebar.classList.remove('translate-x-0');
+            sidebarOverlay.classList.remove('opacity-100');
+            sidebarOverlay.classList.add('hidden', 'pointer-events-none');
+            burgerBtn.classList.remove('sidebar-open');
+          }
+        }
+
+        function renderSidebarCategories() {
+          const accordionContainer = document.getElementById('sidebar-categories-accordion');
+          if (!accordionContainer || !storeDB) return;
+
+          const listContainer = document.getElementById('sidebar-categories-list');
+          if (!listContainer) return;
+
+          let listHtml = `
+            <li>
+              <a href="#" class="category-filter-btn block py-1.5 px-3 rounded text-sm transition-all text-cyan-300 font-mono hover:bg-cyan-500/10" data-cat="all">
+                [ALL SYSTEMS]
+              </a>
+            </li>
+          `;
+
+          storeDB.categories.forEach(cat => {
+            listHtml += `
+              <li>
+                <a href="#" class="category-filter-btn block py-1.5 px-3 rounded text-sm transition-all text-gray-400 hover:text-cyan-400 font-mono hover:bg-cyan-500/10" data-cat="${cat.id}">
+                  // ${cat.name.toUpperCase()}
+                </a>
+              </li>
+            `;
+          });
+
+          listContainer.innerHTML = listHtml;
+
+          const header = accordionContainer.querySelector('.accordion-header');
+          header.addEventListener('click', () => {
+            accordionContainer.classList.toggle('accordion-active');
+          });
+
+          listContainer.querySelectorAll('.category-filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+              e.preventDefault();
+              const cat = btn.getAttribute('data-cat');
+              currentCategory = cat;
+              currentPage = 1;
+              
+              listContainer.querySelectorAll('.category-filter-btn').forEach(b => {
+                b.classList.remove('text-cyan-300', 'bg-cyan-500/10');
+                b.classList.add('text-gray-400');
+              });
+              btn.classList.add('text-cyan-300', 'bg-cyan-500/10');
+              btn.classList.remove('text-gray-400');
+
+              closeSidebar();
+              renderAppGrid();
+              
+              const mainSection = document.getElementById('main-store-section');
+              if (mainSection) {
+                mainSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            });
+          });
+        }
+
+        function renderMainPage() {
+          renderRecommendedCarousel();
+          renderAppGrid();
+        }
+
+        function renderRecommendedCarousel() {
+          const container = document.getElementById('recommended-carousel-container');
+          const track = document.getElementById('recommended-carousel-track');
+          if (!container || !track || !storeDB) return;
+
+          track.innerHTML = '';
+          const recommendedPkgs = storeDB.recommended_apps || [];
+          const recommendedApps = storeDB.app_list.filter(app => recommendedPkgs.includes(app.pkg));
+
+          if (recommendedApps.length === 0) {
+            container.style.display = 'none';
+            return;
+          }
+
+          const duplicates = [...recommendedApps, ...recommendedApps, ...recommendedApps];
+
+          duplicates.forEach((app, index) => {
+            const card = document.createElement('div');
+            card.className = 'flex-shrink-0 w-full md:w-1/2 p-3';
+            
+            let colorGlowClass = 'glow-card-cyan';
+            let labelColor = 'text-cyan-400';
+            if (app.category === 'gaming') {
+              colorGlowClass = 'glow-card-pink';
+              labelColor = 'text-pink-400';
+            } else if (app.category === 'media') {
+              colorGlowClass = 'glow-card-green';
+              labelColor = 'text-emerald-400';
+            }
+
+            const firstModFeature = app.mod_features?.[0] || 'Premium Unlocked';
+
+            card.innerHTML = `
+              <div class="glass-panel hover:border-cyan-500/30 ${colorGlowClass} p-5 rounded-2xl flex items-center gap-4 cursor-pointer h-full transition-all duration-300" onclick="window.location.href='app.html?pkg=${app.pkg}'">
+                <img src="${app.icon}" alt="${app.name}" class="w-16 h-16 rounded-xl object-cover border border-white/10" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=120&h=120&q=80'">
+                <div class="overflow-hidden flex-1">
+                  <span class="text-[10px] tracking-wider uppercase bg-white/5 border border-white/10 px-2 py-0.5 rounded-full text-gray-400 font-mono">${app.category.toUpperCase()}</span>
+                  <h3 class="font-display text-xl font-bold text-white mt-1 leading-tight truncate">${app.name}</h3>
+                  <p class="text-xs ${labelColor} font-semibold mt-0.5 truncate font-mono">⚡ MOD: ${firstModFeature}</p>
+                </div>
+              </div>
+            `;
+            track.appendChild(card);
+          });
+
+          let itemsCount = recommendedApps.length;
+          currentCarouselIndex = itemsCount; 
+
+          const updatePosition = (smooth = true) => {
+            if (!track.children[0]) return;
+            const cardWidth = track.children[0].offsetWidth;
+            const translateVal = -(currentCarouselIndex * cardWidth);
+            track.style.transition = smooth ? 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)' : 'none';
+            track.style.transform = `translateX(${translateVal}px)`;
+          };
+
+          window.addEventListener('resize', () => {
+            updatePosition(false);
+          });
+
+          const startAutoScroll = () => {
+            stopAutoScroll();
+            carouselTimer = setInterval(() => {
+              currentCarouselIndex++;
+              updatePosition(true);
+
+              setTimeout(() => {
+                if (currentCarouselIndex >= itemsCount * 2) {
+                  currentCarouselIndex = itemsCount;
+                  updatePosition(false);
+                }
+              }, 500);
+            }, 2500);
+          };
+
+          const stopAutoScroll = () => {
+            if (carouselTimer) clearInterval(carouselTimer);
+          };
+
+          track.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            stopAutoScroll();
+            startX = e.pageX - track.offsetLeft;
+            scrollLeft = currentCarouselIndex;
+            track.style.transition = 'none';
+          });
+
+          window.addEventListener('mouseup', () => {
+            if (!isDragging) return;
+            isDragging = false;
+            currentCarouselIndex = Math.round(currentCarouselIndex);
+            updatePosition(true);
+            startAutoScroll();
+          });
+
+          track.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - track.offsetLeft;
+            const walk = (x - startX) / track.children[0].offsetWidth;
+            currentCarouselIndex = scrollLeft - walk;
+            track.style.transform = `translateX(${-currentCarouselIndex * track.children[0].offsetWidth}px)`;
+          });
+
+          // Touch
+          track.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            stopAutoScroll();
+            startX = e.touches[0].pageX - track.offsetLeft;
+            scrollLeft = currentCarouselIndex;
+            track.style.transition = 'none';
+          });
+
+          track.addEventListener('touchend', () => {
+            isDragging = false;
+            currentCarouselIndex = Math.round(currentCarouselIndex);
+            updatePosition(true);
+            startAutoScroll();
+          });
+
+          track.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const x = e.touches[0].pageX - track.offsetLeft;
+            const walk = (x - startX) / track.children[0].offsetWidth;
+            currentCarouselIndex = scrollLeft - walk;
+            track.style.transform = `translateX(${-currentCarouselIndex * track.children[0].offsetWidth}px)`;
+          });
+
+          setTimeout(() => {
+            updatePosition(false);
+            startAutoScroll();
+          }, 200);
+        }
+
+        function renderAppGrid() {
+          const gridContainer = document.getElementById('main-app-grid');
+          const countDisplay = document.getElementById('grid-results-count');
+          const activeIndicator = document.getElementById('active-category-indicator');
+          if (!gridContainer || !storeDB) return;
+
+          gridContainer.innerHTML = '';
+
+          let filteredList = storeDB.app_list || [];
+
+          if (currentCategory !== 'all') {
+            filteredList = filteredList.filter(app => app.category === currentCategory);
+            const activeCatObj = storeDB.categories.find(c => c.id === currentCategory);
+            if (activeIndicator && activeCatObj) {
+              activeIndicator.textContent = `[ CATEGORY: ${activeCatObj.name.toUpperCase()} ]`;
+            }
+          } else {
+            if (activeIndicator) {
+              activeIndicator.textContent = `[ SECURE DEPLOYED NODE: ALL ]`;
+            }
+          }
+
+          if (searchQuery) {
+            filteredList = filteredList.filter(app => 
+              app.name.toLowerCase().includes(searchQuery) || 
+              app.pkg.toLowerCase().includes(searchQuery)
+            );
+          }
+
+          if (countDisplay) {
+            countDisplay.textContent = `Found ${filteredList.length} systems`;
+          }
+
+          if (filteredList.length === 0) {
+            gridContainer.innerHTML = `
+              <div class="col-span-full py-16 text-center">
+                <p class="text-rose-500 font-mono text-lg uppercase tracking-wider">[ INTRUSION ERROR: NO CORRESPONDING APPLICATIONS FOUND ]</p>
+                <p class="text-sm text-gray-400 mt-2">Adjust your decryption keys or query constraints</p>
+              </div>
+            `;
+            renderPagination(0);
+            return;
+          }
+
+          const totalItems = filteredList.length;
+          const totalPages = Math.ceil(totalItems / itemsPerPage);
+          
+          const startIdx = (currentPage - 1) * itemsPerPage;
+          const endIdx = startIdx + itemsPerPage;
+          const pagedList = filteredList.slice(startIdx, endIdx);
+
+          pagedList.forEach(app => {
+            const card = document.createElement('div');
+            card.className = 'glass-card-interactive p-4 rounded-xl flex flex-col justify-between cursor-pointer';
+            card.addEventListener('click', () => {
+              window.location.href = `app.html?pkg=${app.pkg}`;
+            });
+
+            const featuresHtml = app.mod_features.slice(0, 3).map(feat => `
+              <li class="flex items-start gap-1.5 text-xs text-gray-300">
+                <span class="text-cyan-400 font-mono mt-0.5">⚡</span>
+                <span class="truncate">${feat}</span>
+              </li>
+            `).join('');
+
+            card.innerHTML = `
+              <div>
+                <div class="flex items-center gap-3 mb-3">
+                  <img src="${app.icon}" alt="${app.name}" class="w-12 h-12 rounded-lg object-cover border border-white/5" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=120&h=120&q=80'">
+                  <div class="overflow-hidden">
+                    <h3 class="font-display font-bold text-lg text-white leading-tight truncate">${app.name}</h3>
+                    <span class="text-[9px] tracking-wider uppercase bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 px-1.5 py-0.5 rounded font-mono">${app.category.toUpperCase()}</span>
+                  </div>
+                </div>
+                
+                <ul class="space-y-1 mb-4">
+                  ${featuresHtml}
+                  ${app.mod_features.length > 3 ? `<li class="text-[10px] text-gray-400 font-mono ml-4">+ ${app.mod_features.length - 3} additional modifications</li>` : ''}
+                </ul>
+              </div>
+
+              <div class="border-t border-white/5 pt-2 flex justify-between items-center text-[10px] text-gray-400 font-mono">
+                <span>By: ${app.creator || 'Unknown'}</span>
+                <span class="text-cyan-400 font-semibold">${app.version}</span>
+              </div>
+            `;
+            gridContainer.appendChild(card);
+          });
+
+          renderPagination(totalPages);
+        }
+
+        function renderPagination(totalPages) {
+          const container = document.getElementById('grid-pagination');
+          if (!container) return;
+
+          container.innerHTML = '';
+          if (totalPages <= 1) return;
+
+          const prevBtn = document.createElement('button');
+          prevBtn.className = `px-3 py-1.5 rounded font-mono text-xs ${currentPage === 1 ? 'opacity-40 cursor-not-allowed text-gray-500' : 'text-cyan-400 hover:bg-cyan-500/10'}`;
+          prevBtn.innerHTML = '&lt; PREV';
+          prevBtn.disabled = currentPage === 1;
+          prevBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+              currentPage--;
+              renderAppGrid();
+              window.scrollTo({ top: document.getElementById('main-store-section').offsetTop - 20, behavior: 'smooth' });
+            }
+          });
+          container.appendChild(prevBtn);
+
+          for (let i = 1; i <= totalPages; i++) {
+            const pageBtn = document.createElement('button');
+            pageBtn.className = `w-8 h-8 rounded font-mono text-xs transition-all ${currentPage === i ? 'bg-cyan-500 text-black font-bold shadow-[0_0_10px_rgba(0,242,254,0.4)]' : 'text-gray-400 hover:text-white hover:bg-white/5'}`;
+            pageBtn.textContent = i;
+            pageBtn.addEventListener('click', () => {
+              currentPage = i;
+              renderAppGrid();
+              window.scrollTo({ top: document.getElementById('main-store-section').offsetTop - 20, behavior: 'smooth' });
+            });
+            container.appendChild(pageBtn);
+          }
+
+          const nextBtn = document.createElement('button');
+          nextBtn.className = `px-3 py-1.5 rounded font-mono text-xs ${currentPage === totalPages ? 'opacity-40 cursor-not-allowed text-gray-500' : 'text-cyan-400 hover:bg-cyan-500/10'}`;
+          nextBtn.innerHTML = 'NEXT &gt;';
+          nextBtn.disabled = currentPage === totalPages;
+          nextBtn.addEventListener('click', () => {
+            if (currentPage < totalPages) {
+              currentPage++;
+              renderAppGrid();
+              window.scrollTo({ top: document.getElementById('main-store-section').offsetTop - 20, behavior: 'smooth' });
+            }
+          });
+          container.appendChild(nextBtn);
+        }
+      })();
+    </script>
+
+    <!-- Secrets Backdoor Control script inline -->
+    <script>
+      (function () {
+        document.addEventListener('DOMContentLoaded', () => {
+          initBackdoor();
+          applyInitialTheme();
+        });
+
+        function applyInitialTheme() {
+          const savedTheme = localStorage.getItem('theme') || 'dark';
+          if (savedTheme === 'light') {
+            document.body.classList.add('light-theme');
+          } else {
+            document.body.classList.remove('light-theme');
+          }
+        }
+
+        function initBackdoor() {
+          let gear = document.getElementById('secret-trigger-gear');
+          if (!gear) {
+            const footer = document.querySelector('footer');
+            if (footer) {
+              gear = document.createElement('button');
+              gear.id = 'secret-trigger-gear';
+              gear.innerHTML = '⚙️';
+              gear.title = 'Admin Configuration Matrix';
+              footer.appendChild(gear);
+            }
+          }
+
+          // Create the Accessibility Sidebar if it doesn't exist
+          let sidebar = document.getElementById('accessibility-sidebar');
+          if (!sidebar) {
+            sidebar = document.createElement('div');
+            sidebar.id = 'accessibility-sidebar';
+            sidebar.className = 'glass-panel';
+            sidebar.innerHTML = `
+              <!-- Drawer Header -->
+              <div class="p-4 border-b border-white/10 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="text-[#00f2fe] text-lg">⚙️</span>
+                  <h3 class="font-display font-bold text-lg tracking-wider text-white uppercase">Accessibility</h3>
+                </div>
+                <button id="close-accessibility-btn" class="text-gray-400 hover:text-white transition-colors text-lg p-2 font-bold">&times;</button>
+              </div>
+              
+              <!-- Drawer Body -->
+              <div class="p-5 flex-1 flex flex-col justify-between" style="height: calc(100% - 60px);">
+                <!-- Top Settings Group -->
+                <div class="space-y-6">
+                  <div class="flex items-center justify-between bg-black/20 p-4 rounded-lg border border-white/5">
+                    <div>
+                      <label class="text-sm font-semibold tracking-wide text-white block">Dark Mode</label>
+                      <span class="text-[10px] text-gray-400 font-mono">Toggle deep space background</span>
+                    </div>
+                    <!-- Toggle Switch -->
+                    <label class="relative inline-flex items-center cursor-pointer">
+                      <input type="checkbox" id="dark-mode-toggle" class="sr-only peer" checked>
+                      <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-cyan-500"></div>
+                    </label>
+                  </div>
+                </div>
+                
+                <!-- Blank Space Backdoor Trigger Zone -->
+                <div id="backdoor-trigger-zone" class="flex-1 mt-6 border border-dashed border-white/5 rounded-lg bg-transparent hover:bg-white/[0.01] cursor-pointer flex flex-col items-center justify-center transition-all" style="min-height: 250px;" title="System Diagnostic Area">
+                  <span class="opacity-0 text-[10px] font-mono text-gray-500">SECURE REGION</span>
+                </div>
+              </div>
+            `;
+            document.body.appendChild(sidebar);
+          }
+
+          // Initial check state for dark mode toggle
+          const toggleInput = document.getElementById('dark-mode-toggle');
+          if (toggleInput) {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            toggleInput.checked = (savedTheme !== 'light');
+            toggleInput.addEventListener('change', (e) => {
+              if (e.target.checked) {
+                localStorage.setItem('theme', 'dark');
+                document.body.classList.remove('light-theme');
+              } else {
+                localStorage.setItem('theme', 'light');
+                document.body.classList.add('light-theme');
+              }
+            });
+          }
+
+          // Toggle drawer on gear click
+          if (gear) {
+            gear.addEventListener('click', (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              sidebar.classList.toggle('open');
+            });
+          }
+
+          // Close drawer on close click
+          const closeBtn = document.getElementById('close-accessibility-btn');
+          if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+              sidebar.classList.remove('open');
+            });
+          }
+
+          // Close drawer on click outside
+          document.addEventListener('click', (e) => {
+            if (sidebar.classList.contains('open') && !sidebar.contains(e.target) && e.target !== gear) {
+              sidebar.classList.remove('open');
+            }
+          });
+
+          // 7-tap backdoor trigger in the blank space
+          const triggerZone = document.getElementById('backdoor-trigger-zone');
+          let tapCount = 0;
+          let lastTapTime = Date.now();
+
+          if (triggerZone) {
+            triggerZone.addEventListener('click', (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              
+              const currentTime = Date.now();
+              if (currentTime - lastTapTime > 4000) {
+                tapCount = 0;
+              }
+              lastTapTime = currentTime;
+              tapCount++;
+
+              createClickRipple(e.clientX, e.clientY, document.body);
+
+              if (tapCount === 7) {
+                sidebar.classList.remove('open');
+                
+                // Fullscreen blurred overlay for secure modal
+                const modalOverlay = document.createElement('div');
+                modalOverlay.id = 'modal-blur-overlay';
+                modalOverlay.style.position = 'fixed';
+                modalOverlay.style.top = '0';
+                modalOverlay.style.left = '0';
+                modalOverlay.style.width = '100vw';
+                modalOverlay.style.height = '100vh';
+                modalOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.75)';
+                modalOverlay.style.backdropFilter = 'blur(10px)';
+                modalOverlay.style.zIndex = '99999';
+                modalOverlay.style.display = 'flex';
+                modalOverlay.style.alignItems = 'center';
+                modalOverlay.style.justifyContent = 'center';
+                
+                document.body.appendChild(modalOverlay);
+                document.body.style.overflow = 'hidden';
+                
+                showSecureAuthModal(modalOverlay);
+                tapCount = 0;
+              }
+            });
+          }
+        }
+
+        function createClickRipple(x, y, parent) {
+          const ripple = document.createElement('div');
+          ripple.style.position = 'absolute';
+          ripple.style.left = `${x - 10}px`;
+          ripple.style.top = `${y - 10}px`;
+          ripple.style.width = '20px';
+          ripple.style.height = '20px';
+          ripple.style.border = '1px solid rgba(0, 242, 254, 0.3)';
+          ripple.style.borderRadius = '50%';
+          ripple.style.pointerEvents = 'none';
+          ripple.style.transform = 'scale(0.5)';
+          ripple.style.transition = 'transform 0.4s ease-out, opacity 0.4s ease-out';
+          ripple.style.opacity = '1';
+          ripple.style.zIndex = '100001';
+
+          parent.appendChild(ripple);
+
+          setTimeout(() => {
+            ripple.style.transform = 'scale(3)';
+            ripple.style.opacity = '0';
+          }, 10);
+
+          setTimeout(() => {
+            ripple.remove();
+          }, 500);
+        }
+
+        function showSecureAuthModal(parent) {
+          const modalContainer = document.createElement('div');
+          modalContainer.id = 'auth-glass-modal';
+          modalContainer.className = 'glass-panel animate-fade-in';
+          modalContainer.style.width = '90%';
+          modalContainer.style.maxWidth = '400px';
+          modalContainer.style.padding = '24px';
+          modalContainer.style.borderRadius = '12px';
+          modalContainer.style.border = '1px solid rgba(0, 242, 254, 0.3)';
+          modalContainer.style.boxShadow = '0 0 30px rgba(0, 242, 254, 0.2)';
+          modalContainer.style.textAlign = 'center';
+          modalContainer.style.position = 'relative';
+
+          modalContainer.innerHTML = `
+            <div class="mb-4">
+              <h2 class="font-display text-2xl font-bold tracking-wider text-cyan-400 text-cyber-glow-cyan uppercase mb-1">SECURE TERMINAL BYPASS</h2>
+              <p class="text-xs text-gray-400 font-mono">AUTHORIZED PERSONNEL ONLY - LEVEL 5 CLEARANCE</p>
+            </div>
+            <div class="mb-4">
+              <input type="password" id="cyber-pass-input" placeholder="ENTER ACCESS CODE..." 
+                class="w-full text-center py-2 px-3 bg-black/80 border border-cyan-500/40 rounded text-cyan-300 font-mono tracking-widest focus:border-cyan-400 focus:shadow-[0_0_10px_rgba(0,242,254,0.3)] transition-all">
+              <div id="auth-error-msg" class="text-rose-500 text-xs font-mono mt-2 hidden">INVALID AUTHORIZATION HASH</div>
+            </div>
+            <div class="flex gap-3 justify-center">
+              <button id="auth-cancel-btn" class="px-4 py-1.5 bg-gray-900 hover:bg-gray-800 border border-gray-700 hover:border-gray-500 text-xs text-gray-400 hover:text-white uppercase font-mono rounded transition-all">ABORT</button>
+              <button id="auth-submit-btn" class="px-6 py-1.5 bg-cyan-950 hover:bg-cyan-900 border border-cyan-500 text-xs text-cyan-300 hover:text-cyan-200 uppercase font-mono rounded shadow-[0_0_8px_rgba(0,242,254,0.2)] hover:shadow-[0_0_15px_rgba(0,242,254,0.4)] transition-all">EXECUTE</button>
+            </div>
+          `;
+
+          parent.appendChild(modalContainer);
+
+          const input = modalContainer.querySelector('#cyber-pass-input');
+          const submitBtn = modalContainer.querySelector('#auth-submit-btn');
+          const cancelBtn = modalContainer.querySelector('#auth-cancel-btn');
+          const errorMsg = modalContainer.querySelector('#auth-error-msg');
+
+          input.focus();
+
+          const encryptedPass = 'dXBkYXRlQHN0b3Jl';
+
+          function handleVerify() {
+            const value = input.value;
+            if (btoa(value) === encryptedPass) {
+              localStorage.setItem('sr7_admin_session', 'authenticated_token_99812_sr7mods');
+              errorMsg.classList.add('hidden');
+              input.style.borderColor = '#39ff14';
+              input.style.color = '#39ff14';
+              submitBtn.style.background = 'rgba(57, 255, 20, 0.2)';
+              submitBtn.style.color = '#39ff14';
+              submitBtn.innerText = 'ACCESS GRANTED';
+
+              setTimeout(() => {
+                window.location.href = 'control.html';
+              }, 800);
+            } else {
+              errorMsg.classList.remove('hidden');
+              input.style.borderColor = '#ff007f';
+              input.classList.add('animate-bounce');
+              localStorage.removeItem('sr7_admin_session');
+
+              setTimeout(() => {
+                alert('ACCESS DENIED - SYSTEM SHUTDOWN TRIGGERED');
+                parent.remove();
+                document.body.style.overflow = 'auto';
+                window.location.href = 'index.html';
+              }, 1200);
+            }
+          }
+
+          submitBtn.addEventListener('click', handleVerify);
+          input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+              handleVerify();
+            }
+          });
+
+          cancelBtn.addEventListener('click', () => {
+            parent.remove();
+            document.body.style.overflow = 'auto';
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
