@@ -1,0 +1,343 @@
+/*
+ * SR7MODS STORE - Cyberpunk & Glassmorphism Theme Style
+ * Optimized CSS with custom CSS variables, smooth animations & 60fps transitions
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap');
+
+:root {
+  --font-display: 'Rajdhani', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+
+  /* Premium Cyberpunk Color Tokens */
+  --color-bg-dark: #0a0c10;
+  --color-bg-slate: #0f131a;
+  --color-neon-cyan: #00f2fe;
+  --color-neon-cyan-glow: rgba(0, 242, 254, 0.4);
+  --color-neon-pink: #ff007f;
+  --color-neon-pink-glow: rgba(255, 0, 127, 0.4);
+  --color-neon-green: #39ff14;
+  --color-neon-green-glow: rgba(57, 255, 20, 0.4);
+  --color-gold: #ffb800;
+
+  /* Glassmorphism Configuration */
+  --glass-bg: rgba(15, 20, 30, 0.45);
+  --glass-bg-hover: rgba(25, 32, 47, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-glow: rgba(0, 242, 254, 0.25);
+  --glass-blur: blur(16px) saturate(180%);
+}
+
+/* Base resets & layouts */
+body {
+  background-color: var(--color-bg-dark);
+  font-family: var(--font-sans);
+  color: #e2e8f0;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Background Glowing Blobs */
+.bg-glow-blobs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.25;
+  animation: floatBlobs 20s infinite ease-in-out;
+}
+
+.blob-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--color-neon-cyan) 0%, rgba(0,0,0,0) 70%);
+  top: -10%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.blob-2 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--color-neon-pink) 0%, rgba(0,0,0,0) 70%);
+  bottom: -15%;
+  right: -10%;
+  animation-delay: 5s;
+}
+
+.blob-3 {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, var(--color-neon-green) 0%, rgba(0,0,0,0) 70%);
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 10s;
+}
+
+@keyframes floatBlobs {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(50px, -40px) scale(1.1);
+  }
+  66% {
+    transform: translate(-30px, 60px) scale(0.95);
+  }
+}
+
+/* Typography styles */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.text-cyber-glow-cyan {
+  text-shadow: 0 0 8px var(--color-neon-cyan-glow), 0 0 20px rgba(0, 242, 254, 0.2);
+}
+
+.text-cyber-glow-pink {
+  text-shadow: 0 0 8px var(--color-neon-pink-glow), 0 0 20px rgba(255, 0, 127, 0.2);
+}
+
+/* Glassmorphism base utility classes */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.glass-panel:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.glass-card-interactive {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-interactive:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--glass-border-glow);
+  background-color: var(--glass-bg-hover);
+  box-shadow: 0 12px 40px 0 rgba(0, 242, 254, 0.15);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(10, 12, 16, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neon-cyan);
+  box-shadow: 0 0 8px var(--color-neon-cyan-glow);
+}
+
+/* Hamburger & Sidebar Transition */
+.hamburger-line {
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.sidebar-open .line-1 {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.sidebar-open .line-2 {
+  opacity: 0;
+}
+
+.sidebar-open .line-3 {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Horizontal Infinite Carousel */
+.carousel-viewport {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  cursor: grab;
+  user-select: none;
+}
+
+.carousel-viewport:active {
+  cursor: grabbing;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+/* Neon Glow utilities */
+.glow-border-cyan {
+  border-color: var(--color-neon-cyan);
+  box-shadow: 0 0 10px var(--color-neon-cyan-glow);
+}
+
+.glow-border-pink {
+  border-color: var(--color-neon-pink);
+  box-shadow: 0 0 10px var(--color-neon-pink-glow);
+}
+
+/* Secret Entry Zoom Trigger */
+.secret-gear {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 1px;
+  height: 1px;
+  opacity: 0.005;
+  transform: scale(0.01);
+  transform-origin: bottom left;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 100;
+  cursor: pointer;
+  background: transparent;
+  color: transparent;
+}
+
+/* When the viewport is zoomed in significantly, window.devicePixelRatio increases, or user checks the zoom */
+/* But to ensure it's detectable on both mobile zoom and desktop zoom, we add responsive styles */
+@media (min-resolution: 200dpi) and (max-width: 640px) {
+  .secret-gear {
+    opacity: 0.1;
+    transform: scale(2);
+    width: 12px;
+    height: 12px;
+    color: rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* Let's make sure it is physically small and dark, but becomes hoverable or interactable on deep hover or click */
+.secret-gear:hover, .secret-gear:active {
+  opacity: 0.4;
+  transform: scale(16);
+  width: 16px;
+  height: 16px;
+  color: var(--color-neon-cyan);
+}
+
+/* Dynamic glow cards depending on profile */
+.glow-card-cyan {
+  box-shadow: 0 8px 32px 0 rgba(0, 242, 254, 0.08);
+}
+.glow-card-pink {
+  box-shadow: 0 8px 32px 0 rgba(255, 0, 127, 0.08);
+}
+.glow-card-green {
+  box-shadow: 0 8px 32px 0 rgba(57, 255, 20, 0.08);
+}
+.glow-card-gold {
+  box-shadow: 0 8px 32px 0 rgba(255, 184, 0, 0.08);
+}
+
+/* Input Styles */
+input, textarea, select {
+  background: rgba(10, 12, 16, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f8fafc;
+  transition: all 0.25s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--color-neon-cyan);
+  box-shadow: 0 0 0 2px rgba(0, 242, 254, 0.25);
+  background: rgba(15, 20, 30, 0.8);
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+  color: #030712;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
+  filter: brightness(1.1);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.btn-cyber-pink {
+  background: linear-gradient(135deg, #ff007f 0%, #ff5252 100%);
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 0, 127, 0.3);
+}
+
+.btn-cyber-pink:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(255, 0, 127, 0.5);
+  filter: brightness(1.1);
+}
+
+/* Custom Accordion for Sidebar */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.accordion-active .accordion-content {
+  max-height: 500px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
