@@ -1,13 +1,25 @@
 {
   "config": {
-    "store_name": "SR7MODS STORE",
+    "store_name": "SR7MODS APP STORE",
     "about_url": "https://alexsifatrayhan.github.io/about-me/"
   },
   "categories": [
-    { "id": "tools", "name": "Tools & Utilities" },
-    { "id": "gaming", "name": "Modded Games" },
-    { "id": "social", "name": "Social Tweaks" },
-    { "id": "media", "name": "Media Streamers" }
+    {
+      "id": "tools",
+      "name": "Tools & Utilities"
+    },
+    {
+      "id": "gaming",
+      "name": "Modded Games"
+    },
+    {
+      "id": "social",
+      "name": "Social Tweaks"
+    },
+    {
+      "id": "media",
+      "name": "Media Streamers"
+    }
   ],
   "recommended_apps": [
     "com.sr7.netrunner",
@@ -36,8 +48,14 @@
       },
       "description": "<p class='text-cyan-400 font-semibold mb-2'>Decrypt and bypass firewalls with extreme security.</p><p class='text-gray-300'>NetRunner Proxy is a custom engineered VPN tool featuring zero logs, quantum-resistant tunneling, and automated country switching. Re-routed fully inside a high-speed proxy mesh network.</p><div class='mt-4 p-3 bg-cyan-950/40 border border-cyan-500/30 rounded-lg'><span class='text-xs text-cyan-300 uppercase font-mono tracking-wider'>Mod Details</span><ul class='list-disc list-inside text-gray-300 text-sm mt-1'><li>VIP Server Node Access</li><li>Custom DNS Server injector</li></ul></div>",
       "download_links": [
-        { "name": "Download APK (Fast Server)", "url": "https://github.com/alexsifatrayhan/about-me/releases/download/v1/netrunner-pro.apk" },
-        { "name": "Mirror Link (Cloud Storage)", "url": "https://drive.google.com" }
+        {
+          "name": "Download APK (Fast Server)",
+          "url": "https://github.com/alexsifatrayhan/about-me/releases/download/v1/netrunner-pro.apk"
+        },
+        {
+          "name": "Mirror Link (Cloud Storage)",
+          "url": "https://drive.google.com"
+        }
       ]
     },
     {
@@ -60,7 +78,10 @@
       },
       "description": "<h3 class='text-rose-400 font-bold text-lg mb-2'>The Ultimate Hex Injection Terminal</h3><p class='text-gray-300'>Modify local game database files in real-time. Features active memory registers watcher, custom script compiler, and pointer search logic to modify game parameters dynamically.</p>",
       "download_links": [
-        { "name": "Get CyberHacks APK (Direct)", "url": "#" }
+        {
+          "name": "Get CyberHacks APK (Direct)",
+          "url": "#"
+        }
       ]
     },
     {
@@ -84,7 +105,10 @@
       },
       "description": "<p class='text-emerald-400 font-semibold mb-2'>Immersive Spatial Audio for Net-Runners</p><p class='text-gray-300'>Stream and play offline audio with customized equalizer bands. Features state-of-the-art ambient reverb filters, high-fidelity format decoder, and exclusive custom backgrounds tailored to neon environments.</p>",
       "download_links": [
-        { "name": "VibePlayer-Premium.apk", "url": "#" }
+        {
+          "name": "VibePlayer-Premium.apk",
+          "url": "#"
+        }
       ]
     }
   ]
