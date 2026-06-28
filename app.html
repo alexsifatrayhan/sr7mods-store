@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SYSTEMSPEC - SR7MODS STORE</title>
+    <!-- Tailwind v4 and Premium Styles -->
+    <link rel="stylesheet" href="/src/index.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="min-height-screen flex flex-col justify-between">
+    
+    <!-- Background Glowing Blobs -->
+    <div class="bg-glow-blobs">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
+    <!-- GLOBAL NAVIGATION HEADER -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-white/5 py-3 px-4 md:px-8">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        
+        <!-- Left Side: Hamburger & Navigation Trigger -->
+        <div class="flex items-center">
+          <button id="burger-menu-btn" class="flex flex-col justify-between w-6 h-5 focus:outline-none z-50 group" aria-label="Toggle Navigation">
+            <span class="hamburger-line line-1 w-6 h-0.5 bg-cyan-400 group-hover:bg-white rounded"></span>
+            <span class="hamburger-line line-2 w-5 h-0.5 bg-cyan-400 group-hover:bg-white rounded"></span>
+            <span class="hamburger-line line-3 w-6 h-0.5 bg-cyan-400 group-hover:bg-white rounded"></span>
+          </button>
+        </div>
+
+        <!-- Center: Title and Brand -->
+        <div class="flex flex-col items-center text-center">
+          <a href="index.html" id="header-home-link" class="store-title-header font-display text-2xl md:text-3xl font-extrabold tracking-wider bg-gradient-to-r from-cyan-400 via-sky-400 to-pink-500 bg-clip-text text-transparent hover:brightness-110 active:scale-[0.99] transition-all cursor-pointer">
+            SR7MODS STORE
+          </a>
+          <a href="https://alexsifatrayhan.github.io/about-me/" id="header-about-link" target="_self" class="text-[10px] md:text-xs font-mono text-gray-400 hover:text-pink-500 uppercase tracking-widest transition-all cursor-pointer mt-0.5">
+            SR7 Mods
+          </a>
+        </div>
+
+        <!-- Right Side: Interactive Search Expanding Block -->
+        <div class="flex items-center gap-2 relative">
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="DECRYPT SYSTEM SEARCH..." 
+            class="w-0 opacity-0 py-1 text-xs bg-black/80 border border-cyan-500/30 rounded-lg text-cyan-300 font-mono tracking-wider transition-all duration-300"
+          />
+          <button id="search-btn" class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-cyan-500/30 transition-all text-cyan-400 hover:text-cyan-300 focus:outline-none" aria-label="Search Systems">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- SLIDE & BLUR NAVIGATION SIDEBAR -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-40 hidden pointer-events-none transition-opacity duration-300"></div>
+    <aside id="sidebar-nav" class="fixed top-0 left-0 h-screen w-72 bg-slate-950/95 backdrop-blur-xl border-r border-cyan-500/20 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out p-6 flex flex-col justify-between">
+      
+      <div class="space-y-8">
+        <div class="border-b border-white/5 pb-4">
+          <h2 class="font-display text-xl font-bold text-cyan-400 text-cyber-glow-cyan uppercase tracking-wider">SR7 REPOSITORY</h2>
+          <p class="text-[10px] text-gray-500 font-mono uppercase mt-0.5">Database Security Clearance Level v1</p>
+        </div>
+
+        <nav>
+          <ul class="space-y-4">
+            <li>
+              <a href="index.html" id="sidebar-home-link" class="flex items-center gap-3 text-sm font-mono text-gray-300 hover:text-cyan-300 transition-all py-1.5 uppercase">
+                <span class="text-cyan-500">&gt;</span> [ HOME CENTRAL ]
+              </a>
+            </li>
+            <li>
+              <div id="sidebar-categories-accordion" class="space-y-2">
+                <button class="accordion-header w-full flex items-center justify-between text-sm font-mono text-gray-300 hover:text-cyan-300 transition-all py-1.5 uppercase focus:outline-none">
+                  <span class="flex items-center gap-3">
+                    <span class="text-cyan-500">&gt;</span> [ CATEGORIES ]
+                  </span>
+                  <svg class="w-4 h-4 text-cyan-400 transform transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                <div class="accordion-content pl-6">
+                  <ul id="sidebar-categories-list" class="space-y-2 border-l border-white/5 pl-3 py-1">
+                    <!-- Loaded dynamically in app.js -->
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href="https://alexsifatrayhan.github.io/about-me/" target="_self" id="sidebar-about-link" class="flex items-center gap-3 text-sm font-mono text-gray-300 hover:text-cyan-300 transition-all py-1.5 uppercase">
+                <span class="text-cyan-500">&gt;</span> [ ABOUT CREATOR ]
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="border-t border-white/5 pt-4 text-center">
+        <p class="text-[9px] text-gray-600 font-mono uppercase">VIBE-ID: SR7-88910-MODS</p>
+      </div>
+    </aside>
+
+    <!-- MAIN APP DETAIL DISPLAY SECTION -->
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 md:px-8 py-8">
+      <div id="app-detail-container" class="space-y-6">
+        <!-- Rendered dynamically in app.js -->
+        <div class="glass-panel p-8 text-center rounded-2xl flex flex-col items-center justify-center">
+          <div class="animate-spin w-12 h-12 border-4 border-cyan-400 border-t-transparent rounded-full mb-4"></div>
+          <p class="font-mono text-cyan-300 text-sm uppercase">Loading and decrypting application specification metadata...</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- PREMIUM FOOTER -->
+    <footer class="mt-12 glass-panel border-t border-white/5 py-8 px-4 text-center relative overflow-hidden">
+      <div class="max-w-4xl mx-auto space-y-3">
+        <div class="flex justify-center items-center gap-2">
+          <span class="text-cyan-400 font-mono tracking-widest uppercase font-bold text-sm">SR7 MODS</span>
+          <span class="text-gray-600 font-mono text-xs">// SYSTEM CORE</span>
+        </div>
+        <p class="text-xs text-gray-400 leading-relaxed max-w-2xl mx-auto">
+          © 2026 SR7 Mods. All web assets, reverse-engineered modules, and customized modifications belong strictly to SR7 Mods. Unauthorized distribution prohibited.
+        </p>
+      </div>
+
+      <!-- Hidden absolute gear backdoor -->
+      <button id="secret-trigger-gear" class="secret-gear">⚙️</button>
+    </footer>
+
+    <!-- Import logic drivers -->
+    <script type="module" src="/js/app.js"></script>
+    <script type="module" src="/js/secret.js"></script>
+  </body>
+</html>
