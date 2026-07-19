@@ -31,6 +31,28 @@
           "url": "https://www.dropbox.com/scl/fi/7jnkko68c9sgpfcrqxjl0/ForceNet_Release.apk?rlkey=xwut41efyeyx5nmd3wk59ryt1&st=ywirk3jo&dl=1"
         }
       ]
+    },
+    {
+      "pkg": "com.community.mbox.in",
+      "name": "MovieBox",
+      "category": "tool",
+      "icon": "icons/moviebox.png",
+      "version": "3.2.09.1014.03",
+      "creator": "The Android Ground",
+      "modder": "SR7Mods",
+      "description": "<p><strong>MovieBox Mod:</strong> A fully optimized, lightweight version that provides free access to VIP servers with ultra-fast downloads, completely removing all ads, trackers, and login requirements for a premium streaming experience.</p>\n",
+      "mod_features": [
+        "Lifetime Premium",
+        "No Ads",
+        "No Trackers",
+        "No Login Needed"
+      ],
+      "download_links": [
+        {
+          "name": "Download APK",
+          "url": "https://www.dropbox.com/scl/fi/hvh96a21wn3stk1nuibiq/MovieBox_3.2.09.1014.03_SR7Mods_08-19.apk?rlkey=12xc28iikj7ffkogbbykj768i&st=o62i6flc&dl=1"
+        }
+      ]
     }
   ]
 }
