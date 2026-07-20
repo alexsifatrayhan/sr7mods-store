@@ -58,6 +58,34 @@
           "url": "https://www.dropbox.com/scl/fi/hvh96a21wn3stk1nuibiq/MovieBox_3.2.09.1014.03_SR7Mods_08-19.apk?rlkey=12xc28iikj7ffkogbbykj768i&st=o62i6flc&dl=1"
         }
       ]
+    },
+    {
+      "pkg": "org.telegram.messenger.web",
+      "name": "Telegram",
+      "category": "social",
+      "icon": "icons/telegram.png",
+      "version": "12.8.3",
+      "creator": "Pavel Durov",
+      "modder": "SR7MODS",
+      "description": "<p><strong>Telegram Ghost Mod</strong> is a powerful Modified version of the official Telegram Web App with So many Stealth And Premium Features by SR7 Mods. Enjoy it and contact me if you have any problem.",
+      "mod_features": [
+        "Premium Unlocked",
+        "Sponsor + Restrictions Removed",
+        "Access Restricted Channel or Group",
+        "Watch Story Anonymously",
+        "Typing Status Hidden",
+        "Online Status Hidden",
+        " No Screenshot Restrictions",
+        " Anti-Delete Message",
+        " Unlimited Watch Timer Photo",
+        " Download Speed Boosted"
+      ],
+      "download_links": [
+        {
+          "name": "Download APK",
+          "url": "https://www.dropbox.com/scl/fi/wz3mkjs5tvrt8w9fvrjvx/Telegram_12.8.3_Ghost-Pro-by-SR7-Mods.apk?rlkey=twwyp102n50l5vpv4iezgqngb&st=7v0s7rxj&dl=1"
+        }
+      ]
     }
   ]
 }
