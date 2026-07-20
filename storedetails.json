@@ -7,10 +7,15 @@
     {
       "id": "tool",
       "name": "Tool"
+    },
+    {
+      "id": "social",
+      "name": "Social"
     }
   ],
   "recommended_apps": [
-    "com.forcenet.radioif"
+    "com.forcenet.radioif",
+    "com.community.mbox.in"
   ],
   "app_list": [
     {
